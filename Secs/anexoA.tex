@@ -1,0 +1,65 @@
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+%                                Anexo A
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+\nnchapter{ANEXOS}
+% ------------------------------------------------------------------------
+\anexo{Operaciones de simetría del grupo cristalográfico \emph{I4/mmm} (139)}\label{anexoA}
+
+El programa \textsc{sod} usa dos archivos de entrada para realizar las substituciones, el archivo \textsc{'insod'} y el archivo \textsc{sgo}. Este anexo esta enfocado en el segundo archivo \textsc{'sgo'}, por sus siglas en inglés \textbf{'s}\textit{ymmtry} \textbf{g}\textit{roup} \textbf{o}\textit{perator'}.\\
+
+Los grupos espaciales están numerados del $1$ al $230$ y están ordenados según los $7$ sistemas cristalinos: triclínico, monoclínico, ortorrómbico, tetragonal, trigonal, hexagonal y cúbico. El archivo \textsc{sgo} contiene todas las operaciones de simetría del grupo espacial cristalográfico. Cada grupo espacial tiene asociado un número único que es independiente de la elección de la celda unitaria ó del etiquetado de los ejes\cite{urlcsgdt}. En el caso de la estructura inicial \textsc{rp}-$Sr_{2}BO_{4}(B=Ta/Nb)$, el grupo espacial que le corresponde es \textit{I4/mmm}, el número que le corresponde a este grupo espacial es el 139. Dentro del grupo espacial hay $32$ operaciones de simetría que el programa \textsc{sod} debe leer usando el archivo \textsc{sgo}. Las $32$ operaciones de simetría son:
+
+\begin{align*}
+        1.\quad& x,y,z                  & 9.\quad& \bar{x},\bar{y},\bar{z}  & 17.\quad& x+\frac{1}{2},y+\frac{1}{2},z+\frac{1}{2}   & 25.\quad& \bar{x}+\frac{1}{2},\bar{y}+\frac{1}{2},\bar{z}+\frac{1}{2}\\
+        2.\quad& \bar{x},\bar{y},z      & 10.\quad& x,y,\bar{z}             & 18.\quad& \bar{x}+\frac{1}{2},\bar{y}+\frac{1}{2},z+\frac{1}{2}      & 26.\quad& x+\frac{1}{2},y+\frac{1}{2},\bar{z}+\frac{1}{2}\\
+        3.\quad& \bar{y},x,z            & 11.\quad& y,\bar{x},\bar{z}       & 19.\quad& \bar{y}+\frac{1}{2},x+\frac{1}{2},z+\frac{1}{2}            & 27.\quad& y+\frac{1}{2},\bar{x}+\frac{1}{2},\bar{z}+\frac{1}{2} \\
+        4.\quad& y,\bar{x},z            & 12.\quad& \bar{y},x,\bar{z}       & 20.\quad& y+\frac{1}{2},\bar{x}+\frac{1}{2},z+\frac{1}{2}            & 28.\quad& \bar{y}+\frac{1}{2},x+\frac{1}{2},\bar{z}+\frac{1}{2} \\
+        5.\quad& \bar{x},y,z            & 13.\quad& x,\bar{y},\bar{z}       & 21.\quad& \bar{x}+\frac{1}{2},y+\frac{1}{2},z+\frac{1}{2}            & 29.\quad& x+\frac{1}{2},\bar{y}+\frac{1}{2},\bar{z}+\frac{1}{2} \\
+        6.\quad& x,\bar{y},z            & 14.\quad& \bar{x},y,\bar{z}       & 22.\quad& x+\frac{1}{2},\bar{y}+\frac{1}{2},z+\frac{1}{2}            & 30.\quad& \bar{x}+\frac{1}{2},y+\frac{1}{2},\bar{z}+\frac{1}{2}\\
+        7.\quad& y,x,z                  & 15.\quad& \bar{y},\bar{x},\bar{z} & 23.\quad& y+\frac{1}{2},x+\frac{1}{2},z+\frac{1}{2}                  & 31.\quad& \bar{y}+\frac{1}{2},\bar{x}+\frac{1}{2},\bar{z}+\frac{1}{2}   \\
+        8.\quad& \bar{y},\bar{x},z      & 16.\quad& y,x,\bar{z}             & 24.\quad& \bar{y}+\frac{1}{2},\bar{x}+\frac{1}{2},z+\frac{1}{2}      & 32.\quad& y+\frac{1}{2},x+\frac{1}{2},\bar{z}+\frac{1}{2}       
+\end{align*}
+
+
+Cada operación de simetría representa una matriz diferente. Las primeras $16$ operaciones de simetría son matrices de rotación. Las faltantes $16$ operaciones de simetría son matrices de rotación y un vector de traslación. La operación de simetría numero 1 es una matriz diagonal:
+
+\begin{equation*}
+    \begin{bmatrix}
+     1& 0 &0 \\ 
+     0& 1 & 0\\ 
+     0& 0 & 1
+    \end{bmatrix} 
+\end{equation*} 
+
+La operación de simetría numero $4. y,\bar{x},z$ tiene dos cambios respecto a la primera: la barra encima de la componente ($\bar{x}$) significa que el valor de esa columna es negativa; y el segundo cambio es que las componentes cambia de posición, pasan de ser $\bar{x},y,z$ a ser $y,\bar{x},z$. En una matriz, la operacion de simetria $4$ es:
+
+\begin{equation*}
+    \begin{bmatrix}
+     0& -1 &0 \\ 
+     1& 0 & 0\\ 
+     0& 0 & 1
+    \end{bmatrix} 
+\end{equation*} 
+
+Ahora, la operación de simetría numero $32. y+\frac{1}{2},x+\frac{1}{2},\bar{z}+\frac{1}{2}$ tiene una operacional adicional de translación, es decir, un vector columna de traslación:
+
+\begin{equation*}
+    \begin{bmatrix}
+     0& 1 &0 \\ 
+     1& 0 & 0\\ 
+     0& 0 & -1
+    \end{bmatrix}\begin{bmatrix}
+     0.5 \\
+     0.5 \\
+     0.5
+    \end{bmatrix} 
+\end{equation*} 
+
+
+El programa \textsc{sod} realiza cada una de las $32$ operaciones de simetría a las estructuras \textsc{rp}-$Sr_{2}BO_{3.5}N_{0.5}$ y \textsc{rp}-$Sr_{2}BO_{3}N$ teniendo en cuenta las concentración de nitrógeno. Al final el programa define que configuraciones de ocupación aniónica son posibles.
+% ------------------------------------------------------------------------
